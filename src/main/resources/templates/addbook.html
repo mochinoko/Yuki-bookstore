@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>BookList</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" href="css/general.css"/>
+	
+</head>
+<body>
+	<h1>Add Book</h1>
+	
+    <div class="aroundField">
+		<form class="add" th:object="${book}" th:action="@{/save}" action="#" method="post">
+		  
+		  	<label for="title">Title:</label>
+		  		<br/>
+			<input class="addField" type="text" th:field="*{title}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+	 
+		  	<label for="author">Author:</label>
+		  		<br/>
+			<input class="addField" type="text" th:field="*{author}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+	
+			<label for="year">Year:</label>
+				<br/>
+			<input class="addField" type="text" th:field="*{year}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+		
+			<label for="isbn">ISBN:</label>
+				<br/>
+			<input class="addField" type="text" th:field="*{isbn}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+	
+			<label for="price">Price:</label>
+				<br/>
+			<input class="addField" type="text" th:field="*{price}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+				<br/>
+			
+		
+			<label style="font-size: 22px;" for="deplist">Category: </label>
+	
+			<select style="font-size: 22px;" id="deplist" th:field="*{category}">
+				<option th:each="cate: ${categories}"
+							th:value="${cate.categoryId}"
+							th:text="${cate.name}"></option>
+			</select>
+		
+				<br/>
+				<br/>
+			<input class="dit" type="submit" value="Save"></input>
+			<div style="clear: both; display: block; height: 10px;"></div>
+		</form>
+	</div>  	
+</body>
+</html>

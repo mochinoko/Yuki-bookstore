@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Welcome to Yuki's Bookstore</title>
+             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+			<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+			<link type="text/css" rel="stylesheet" href="/css/login.css" th:href="@{css/login.css}" />
+	
+    </head>
+    <body>
+      <div class="container">
+        <div th:if="${param.error}">
+            Invalid username and password.
+        </div>
+         </div>
+        <div th:if="${param.logout}">
+            You have been logged out...
+        </div>
+         
+         <form th:action="@{/login}" method="post" class="text-center border border-light p-5">
+            <div><label> User Name : <input type="text" name="username" class={form-control}/> </label></div>
+            <div><label> Password: <input type="password" name="password" class={form-control}/> </label></div>
+             </br>
+            <div><input class="btn btn-primary btn-block btn-large" style="width:100px; margin:auto" type="submit" value="Sign In"/></div>
+         </br>
+	</br>
+ 	 
+ 	 <a th:href="@{/signup}">Sign-up</a>
+  </form>
+    </body>
+</html>

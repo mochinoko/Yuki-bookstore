@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>BookList</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
+</head>
+<body>
+	<h1 style="padding-left: 10px; padding-bottom:20px;">Edit Book</h1>
+	
+    <div style="border-radius: 5px; background-color: #f2f2f2; padding:15px;">
+		<form style="font-size: 20px; padding-left: 5px;" th:object="${book}" th:action="@{/saveEdit}" action="#" method="get">
+		  
+			<input  type="hidden" th:field="*{id}" />
+
+		  	<label style="font-size: 22px;" for="title">Title:</label>
+			  	<br/>
+			<input style="font-size: 20px; width: 40%; margin_left: 10px;" type="text" th:field="*{title}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+	 
+		  	<label style="font-size: 22px;" for="author">Author:</label>
+		  		<br/>
+			<input style="font-size: 20px; width: 40%; margin_left: 10px;" type="text" th:field="*{author}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+	
+			<label style="font-size: 22px;" for="year">Year:</label>
+				<br/>
+			<input style="font-size: 20px; width: 40%; margin_left: 10px;" type="text" th:field="*{year}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+		
+			<label style="font-size: 22px;" for="isbn">ISBN:</label>
+				<br/>
+			<input style="font-size: 20px; width: 40%; margin_left: 10px;" type="text" th:field="*{isbn}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+	
+			<label style="font-size: 22px;" for="price">Price:</label>
+				<br/>
+			<input style="font-size: 20px; width: 40%; margin_left: 10px;" type="text" th:field="*{price}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+				<br/>
+			<label style="font-size: 22px;" for="depList">Category:</label>
+			
+			<select style="font-size: 22px;" id="deplist" th:field="*{category}">
+				<option th:each="cate: ${categories}"
+							th:value="${cate.categoryId}"
+							th:text="${cate.name}"></option>
+			</select>
+			
+				<br/>
+		
+				<br/>
+			
+			<input style="font-size: 20px; color: white; background-color: green; " type="submit" value="Save"></input>
+		</form>
+	</div>  
+</body>
+</html>
